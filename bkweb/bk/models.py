@@ -13,12 +13,12 @@ class Transaction(models.Model):
     date = models.DateField()
     description = models.CharField(max_length=200)
     def __unicode__(self):
-        return self.date + ', ' + self.decription
+        return str(self.date) + ', ' + self.description
     
 class Booking(models.Model):
     trans = models.ForeignKey(Transaction)
-    acc = models.ForeignKey(Account)
+    debit = models.ForeignKey(Account, related_name='debit_acc')
+    credit = models.ForeignKey(Account, related_name='credit_acc')
     value = models.FloatField()
-    debORcred = models.BooleanField()
     def __unicode__(self):
         return '%.2f'%self.value

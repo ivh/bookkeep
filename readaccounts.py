@@ -14,16 +14,16 @@ if len(argv) < 3:
 ACCOUNTS=argv[1]
 DBNAME=argv[2]
 
-conn=sqlite.connect(DBNAME)
-curs=conn.cursor()
-ex=curs.execute
-print('Working with %s'%DBNAME)
+#conn=sqlite.connect(DBNAME)
+#curs=conn.cursor()
+#ex=curs.execute
+#print('Working with %s'%DBNAME)
 
-ex('CREATE TABLE accounts (id INT PRIMARY KEY, balance REAL, description TEXT);')
+#ex('CREATE TABLE accounts (id INT PRIMARY KEY, balance REAL, description TEXT);')
 
-ex('CREATE TABLE tansactions (id INT PRIMARY KEY, date TEXT, description TEXT);')
+#ex('CREATE TABLE tansactions (id INT PRIMARY KEY, date TEXT, description TEXT);')
 
-ex('CREATE TABLE bookings (transid INT, debit INT, credit INT, value REAL);')
+#ex('CREATE TABLE bookings (transid INT, debit INT, credit INT, value REAL);')
 
 for acc in open(ACCOUNTS):
     if acc.startswith(COMMENTCHAR): continue
@@ -33,5 +33,6 @@ for acc in open(ACCOUNTS):
     descr=unicode(strip(join(acc[2:])),'UTF-8')
     #ex('INSERT INTO accounts VALUES (?, ?, ?)',(id,balance,descr))
     print 'INSERT INTO bk_account VALUES (NULL, "%s", "%s", "%s");'%(id,balance,descr)
-conn.commit()
-conn.close()
+
+#conn.commit()
+#conn.close()

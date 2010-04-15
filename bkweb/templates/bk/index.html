@@ -1,0 +1,9 @@
+{% if account_list %}
+    <ul>
+    {% for account in account_list %}
+        <li>{{ account.accno }}, {{ account.description }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No accounts available.</p>
+{% endif %}

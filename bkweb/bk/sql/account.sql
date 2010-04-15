@@ -1,7 +1,7 @@
 INSERT INTO bk_account VALUES (NULL, "1220", "0.0", "Maskiner och inventarier");
 INSERT INTO bk_account VALUES (NULL, "1229", "0.0", "Årets avskrivningar på maskiner och inventarier");
 INSERT INTO bk_account VALUES (NULL, "1500", "0.0", "Kundfordringar");
-INSERT INTO bk_account VALUES (NULL, "1930", "0", "0 Checkräkningskonto");
+INSERT INTO bk_account VALUES (NULL, "1930", "0.0", "Checkräkningskonto");
 INSERT INTO bk_account VALUES (NULL, "2013", "0.0", "Egna uttag");
 INSERT INTO bk_account VALUES (NULL, "2017", "0.0", "Egna insättningar");
 INSERT INTO bk_account VALUES (NULL, "2440", "0.0", "Leverantörsskulder");
