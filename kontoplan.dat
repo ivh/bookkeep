@@ -1,0 +1,28 @@
+#Nr, saldo, beskrivning
+#
+#TILLGÅNGAR
+1220,0.0,Maskiner och inventarier
+1229,0.0,Årets avskrivningar på maskiner och inventarier
+1500,0.0,Kundfordringar
+1930,0,0,Checkräkningskonto
+#
+#Eget kapital och skulder
+2013,0.0,Egna uttag
+2017,0.0,Egna insättningar
+2440,0.0,Leverantörsskulder
+2610,0.0,Utgående moms, oreducerad
+2614,0.0,Beräknad utgående moms på tjänsteförvärv från utlandet, oreducerad
+2640,0.0,Ingående moms
+2645,0.0,Beräknad ingående moms på förvärv från utlandet
+#
+#Intäkter
+3000,0.0,Försäljning och utfört arbete samt övriga momspliktiga intäkter
+3100,0.0,Momsfria intäkter
+#
+#Kostnader
+4000,0.0,Varor
+4600,0.0,Legoarbeten och underentreprenader
+5400,0.0,Förbrukningsinventarier och förbrukningsmaterial
+5500,0.0,Reparation och underhåll
+6100,0.0,Kontorsmateriel och trycksaker
+7960,0.0,Valutakursförluster på fordringar och skulder av rörelsekaraktär
