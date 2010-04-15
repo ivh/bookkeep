@@ -31,7 +31,7 @@ for acc in open(ACCOUNTS):
     id=acc[0]
     balance=acc[1]
     descr=unicode(strip(join(acc[2:])),'UTF-8')
-    ex('INSERT INTO accounts VALUES (?, ?, ?)',(id,balance,descr))
-
+    #ex('INSERT INTO accounts VALUES (?, ?, ?)',(id,balance,descr))
+    print 'INSERT INTO bk_account VALUES (NULL, "%s", "%s", "%s");'%(id,balance,descr)
 conn.commit()
 conn.close()
