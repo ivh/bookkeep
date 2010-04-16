@@ -6,10 +6,31 @@ def index(request):
     account_list = Account.objects.all().order_by('accno')
     return render_to_response('bk/index.html', {'account_list': account_list})
 
-def kontoplan(request):
-    accounts = Account.objects.all().order_by('accno')
+def accounts(request):
+    accs = Account.objects.all().order_by('accno')
     
-    return render_to_response('bk/kontoplan.html', {'accounts': accounts})
+    return render_to_response('bk/accounts.html', {'accounts': accs})
+
+def balance(request):
+    return render_to_response('bk/accounts.html', {'accounts': accs})
+
+def result(request):
+    return render_to_response('bk/accounts.html', {'accounts': accs})
+
+def recalc(request):
+    accs = Account.objects.all().order_by('accno')
+    for acc in accs:
+        balance=0.0
+        for boo in acc.booking_set.all():
+            if boo.debit:
+                if acc.debinc: balance+=boo.debit
+                else: balance-=boo.debit
+            if boo.credit:
+                if acc.debinc: balance-=boo.credit
+                else: balance+=boo.credit
+        acc.balance=balance
+        acc.save()
+    return render_to_response('bk/done.html', {})
 
 
 # long version

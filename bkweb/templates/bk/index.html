@@ -1,9 +1,44 @@
-{% if account_list %}
-    <ul>
-    {% for account in account_list %}
-        <li>{{ account.accno }}, {{ account.description }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No accounts available.</p>
-{% endif %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{% block title %}Account Sheet{% endblock %}</title>
+    <style type="text/css">
+      table,td {border: 1px solid black;}
+      #sidebar {float:right;
+      width:200px;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+        {% block sidebar %}
+	<h3>Menu</h3>
+        <ul>
+	  <li><a href="/">Home</a></li>
+ 	  <li><a href="/admin/">Admin</a></li>
+	</ul>
+	<h3>Reports</h3>
+        <ul>
+          <li><a href="/accounts/">Accounts</a></li>
+          <li><a href="/balance/">Balance</a></li>
+ 	  <li><a href="/admin/">Admin</a></li>
+          <li><a href="/recalc/">Recalculate</a></li>
+        </ul>
+	<h3>Add</h3>
+        <ul>
+          <li><a href="/add/cinvoice">Invoice to customer</a></li>
+          <li><a href="/add/linvoice">Invoice to us</a></li>
+        </ul>
+
+         {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}
+	
+	{% endblock %}
+    </div>
+</body>
+</html>

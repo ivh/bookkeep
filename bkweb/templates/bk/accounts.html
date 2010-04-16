@@ -1,0 +1,15 @@
+{% extends "bk/index.html" %}
+{% block content %}
+
+<h1>Account Sheet</h1>
+{% if accounts %}
+<table>
+  <tr><th>Account number</th><th>Description</th><th>Balance</th></tr>
+  {% for account in accounts %}
+  <tr><td>{{ account.accno }}</td><td>{{ account.description }}</td><td>{{ account.balance }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No accounts available.</p>
+{% endif %}
+{% endblock %}
