@@ -2,7 +2,6 @@
 #
 #TILLGÅNGAR
 1220,0.0,1,Maskiner och inventarier
-1229,0.0,1,Årets avskrivningar på maskiner och inventarier
 1500,0.0,1,Kundfordringar
 1930,0.0,1,Checkräkningskonto
 #
@@ -25,4 +24,5 @@
 5400,0.0,1,Förbrukningsinventarier och förbrukningsmaterial
 5500,0.0,1,Reparation och underhåll
 6100,0.0,1,Kontorsmateriel och trycksaker
+7830,0.0,1,Avskrivningar på maskiner och inventarier
 7960,0.0,1,Valutakursförluster på fordringar och skulder av rörelsekaraktär

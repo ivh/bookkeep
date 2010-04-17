@@ -1,21 +1,59 @@
 # Create your views here.
 from bkweb.bk.models import Account,Booking
-
 from django.shortcuts import render_to_response
+from datetime import date
 def index(request):
     account_list = Account.objects.all().order_by('accno')
-    return render_to_response('bk/index.html', {'account_list': account_list})
+    return render_to_response('index.html', {'account_list': account_list})
 
 def accounts(request):
     accs = Account.objects.all().order_by('accno')
     
     return render_to_response('bk/accounts.html', {'accounts': accs})
 
+def _sum_accounts(accs):
+    s=0.0
+    for acc in accs:
+        s+=acc.balance
+    return s
+
 def balance(request):
-    return render_to_response('bk/accounts.html', {'accounts': accs})
+    accs=Account.objects.all()
+    assets=accs.filter(accno__gte=1000).filter(accno__lt=2000)
+    equity=accs.filter(accno__gte=2000).filter(accno__lt=2300)
+    liabs=accs.filter(accno__gte=2300).filter(accno__lt=3000)
+    
+    eqs=_sum_accounts(equity)
+    lis=_sum_accounts(liabs)
+    ass=_sum_accounts(assets)
+    
+    return render_to_response('bk/balance.html',
+                              {'assets':assets,
+                               'liabilities':liabs,
+                               'equity':equity,
+                               'asset_sum':ass,
+                               'liab_sum':lis,
+                               'equity_sum':eqs,
+                               'date':date.today().isoformat()
+                               })
 
 def result(request):
-    return render_to_response('bk/accounts.html', {'accounts': accs})
+    accs=Account.objects.all()
+    expenses=accs.filter(accno__gte=3000).filter(accno__lt=4000)
+    incomes=accs.filter(accno__gte=4000).filter(accno__lt=9000)
+
+    income=_sum_accounts(incomes)
+    expense=_sum_accounts(expenses)
+    incomeloss=income-expense
+    
+    return render_to_response('bk/result.html',
+                              {'expenses': expenses,
+                               'incomes':incomes,
+                               'expense': expense,
+                               'income':income,
+                               'incomeloss':incomeloss,
+                               'date':date.today().isoformat()
+                               })
 
 def recalc(request):
     accs = Account.objects.all().order_by('accno')
