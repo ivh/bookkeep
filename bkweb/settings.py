@@ -25,8 +25,13 @@ TIME_ZONE = 'Europe/Stockholm'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'sv-se'
+_ = lambda s: s
+LANGUAGES = (
+  ('sv', _('Swedish')),
+  ('de', _('German')),
+  ('en', _('English')),
+)
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -60,6 +65,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 

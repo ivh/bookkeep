@@ -1,15 +1,19 @@
 # Create your views here.
 from bkweb.bk.models import Account,Booking
 from django.shortcuts import render_to_response
+from django.template import RequestContext
+
 from datetime import date
+
 def index(request):
     account_list = Account.objects.all().order_by('accno')
-    return render_to_response('index.html', {'account_list': account_list})
+    c=RequestContext(request,{'account_list': account_list})
+    return render_to_response('index.html', c)
 
 def accounts(request):
     accs = Account.objects.all().order_by('accno')
-    
-    return render_to_response('bk/accounts.html', {'accounts': accs})
+    c=RequestContext(request, {'accounts': accs})
+    return render_to_response('bk/accounts.html', c)
 
 def _sum_accounts(accs):
     s=0.0
@@ -26,16 +30,16 @@ def balance(request):
     eqs=_sum_accounts(equity)
     lis=_sum_accounts(liabs)
     ass=_sum_accounts(assets)
-    
-    return render_to_response('bk/balance.html',
-                              {'assets':assets,
+    c=RequestContext(request,{'assets':assets,
                                'liabilities':liabs,
                                'equity':equity,
                                'asset_sum':ass,
                                'liab_sum':lis,
                                'equity_sum':eqs,
-                               'date':date.today().isoformat()
+                               'date':date.today().isoformat(),
+                               'LANGUAGE_CODE':request.LANGUAGE_CODE,
                                })
+    return render_to_response('bk/balance.html',c)
 
 def result(request):
     accs=Account.objects.all()
@@ -45,15 +49,14 @@ def result(request):
     income=_sum_accounts(incomes)
     expense=_sum_accounts(expenses)
     incomeloss=income-expense
-    
-    return render_to_response('bk/result.html',
-                              {'expenses': expenses,
+    c=RequestContext(request,{'expenses': expenses,
                                'incomes':incomes,
                                'expense': expense,
                                'income':income,
                                'incomeloss':incomeloss,
                                'date':date.today().isoformat()
                                })
+    return render_to_response('bk/result.html',c)
 
 def recalc(request):
     accs = Account.objects.all().order_by('accno')
@@ -68,7 +71,8 @@ def recalc(request):
                 else: balance+=boo.credit
         acc.balance=balance
         acc.save()
-    return render_to_response('bk/done.html', {})
+    c=RequestContext(request,{})
+    return render_to_response('bk/done.html', c)
 
 
 # long version

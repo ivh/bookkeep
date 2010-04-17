@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %}{{ title }} | {% trans 'Account Sheet' %}{% endblock %}
 {% block content %}
-<h1>Account Sheet</h1>
+<h1>{% trans 'Account Sheet' %}</h1>
 {% if accounts %}
 <table>
   <tr><th>{% trans 'Account number' %}</th><th>{% trans 'Description' %}</th><th>{% trans 'Balance' %}</th></tr>

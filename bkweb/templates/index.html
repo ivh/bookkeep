@@ -40,7 +40,9 @@
 
     <div id="content">
         {% block content %}
-	
+	<p>{% trans 'Welcome!' %}</p>
+	<p>{% trans 'Choose from the menu.' %}</p>
+	<p>{% trans 'Site language is chosen according to your browser settings. Available so far are English, Swedish and German.' %}</p>
 	{% endblock %}
     </div>
 </body>
