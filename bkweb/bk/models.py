@@ -6,7 +6,7 @@ class Account(models.Model):
         verbose_name = _('Account')
         verbose_name_plural = _('Accounts')
 
-    accno = models.IntegerField(_('Account number'), help_text=_('Number of the account, accroding to BAS. This number is used for classifying accounts, e.g. when calculating income statemant.'),primary_key=True)
+    accno = models.IntegerField(_('Account number'), help_text=_('Number of the account, according to BAS. This number is used for classifying accounts, e.g. when calculating income statemant.'),primary_key=True)
     balance = models.FloatField(_('Balance'), help_text=_('The current balance of the account'))
     debinc = models.BooleanField(_('Debit increases balance?'), help_text=_('General distinction of accounts, into which direction the balance goes for debit and credit.'))
     description = models.CharField(_('Description'), help_text=_('Describe the account.'),max_length=512)
@@ -64,3 +64,33 @@ class Booking(models.Model):
         self.acc.save()
             
         
+class Counterpart(models.Model):
+    class Meta:
+        verbose_name = _('Counterpart')
+        verbose_name_plural = _('Counterparts')
+
+    isCustomer = models.BooleanField(_('Customer?'), help_text=_('Is this a customer? (Supplier otherwise)'))
+    name = models.CharField(_('Name'), help_text=_('Counterpart name'),max_length=512)
+
+    def __unicode__(self):
+        if self.isCustomer: prefix=_('Customer')
+        else: prefix=_('Supplier')
+        return u'%s: %s'%(prefix,self.name)
+
+
+class Invoice(models.Model):
+    class Meta:
+        verbose_name = _('Invoice')
+        verbose_name_plural = _('Invoices')
+
+    isCustomer = models.BooleanField(_('Customer?'), help_text=_('Is this a customer invoice? (Supplier otherwise)'))
+    date = models.DateField(_('Date'), help_text=_('Date of the invoice'))
+    counterpart = models.ForeignKey(Counterpart)
+    trans = models.OneToOneField(Transaction)
+    description = models.CharField(_('Description'), help_text=_('Describe the invoice.'),max_length=512)
+
+    def __unicode__(self):
+        if self.isCustomer: prefix=_('Customer Invoice')
+        else: prefix=_('Supplier Invoice')
+        return u'%s: %s'%(prefix,self.description)
+

@@ -1,6 +1,6 @@
 # Create your views here.
 from bkweb.bk.models import Account,Booking,Transaction
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,get_object_or_404
 from django.template import RequestContext
 
 from datetime import date
@@ -42,8 +42,8 @@ def balance(request):
 
 def result(request):
     accs=Account.objects.all()
-    expenses=accs.filter(accno__gte=3000).filter(accno__lt=4000)
-    incomes=accs.filter(accno__gte=4000).filter(accno__lt=9000)
+    incomes=accs.filter(accno__gte=3000).filter(accno__lt=4000)
+    expenses=accs.filter(accno__gte=4000).filter(accno__lt=9000)
 
     income=_sum_accounts(incomes)
     expense=_sum_accounts(expenses)
@@ -74,8 +74,8 @@ def recalc(request):
     return render_to_response('bk/done.html', c)
 
 def account(request,accno):
+    acc=get_object_or_404(Account,accno=accno)
     bookings=Booking.objects.filter(acc=accno).order_by('id')
-    acc=Account.objects.get(accno=accno)
     c=RequestContext(request,{'bookings':bookings,
                               'date':date.today().isoformat(),
                               'acc':acc,
@@ -83,7 +83,7 @@ def account(request,accno):
     return render_to_response('bk/account.html', c)
 
 def transaction(request,transid):
-    trans=Transaction.objects.get(id=transid)
+    trans=get_object_or_404(Transaction,id=transid)
     bookings=Booking.objects.filter(trans=transid).order_by('id')
     c=RequestContext(request,{'bookings':bookings,
                               'date':date.today().isoformat(),

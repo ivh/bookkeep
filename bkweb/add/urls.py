@@ -4,6 +4,6 @@ urlpatterns = patterns('bkweb.add.views',
                        (r'^$', 'index'),
                        (r'^customer/$', 'customer'),
                        (r'^customerinv/$', 'customerinv'),
-                       (r'^supplyer/$', 'supplyer'),
-                       (r'^supplyerinv/$', 'supplyerinv'),
+                       (r'^supplier/$', 'supplier'),
+                       (r'^supplierinv/$', 'supplierinv'),
                        )

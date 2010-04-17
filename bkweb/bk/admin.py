@@ -1,4 +1,4 @@
-from bkweb.bk.models import Account,Transaction,Booking
+from bkweb.bk.models import Account,Transaction,Booking,Invoice,Counterpart
 from django.contrib import admin
 
 class BookingInline(admin.TabularInline):
@@ -33,3 +33,5 @@ class AccountAdmin(admin.ModelAdmin):
 admin.site.register(Transaction,TransactionAdmin)
 admin.site.register(Account,AccountAdmin)
 admin.site.register(Booking,BookingAdmin)
+admin.site.register(Invoice)
+admin.site.register(Counterpart)
