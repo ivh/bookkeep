@@ -7,7 +7,7 @@
 <table>
   <tr><th>{% trans 'Account number' %}</th><th>{% trans 'Description' %}</th><th>{% trans 'Balance' %}</th></tr>
   {% for account in accounts %}
-  <tr><td>{{ account.accno }}</td><td>{{ account.description }}</td><td>{{ account.balance }}</td></tr>
+  <tr><td><a href="/account/{{ account.accno }}/" title="{% trans 'View movements on this account.' %}">{{ account.accno }}</a></td><td>{{ account.description }}</td><td>{{ account.balance }}</td></tr>
   {% endfor %}
 </table>
 {% else %}

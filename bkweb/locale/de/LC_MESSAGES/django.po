@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-17 11:58+0200\n"
+"POT-Creation-Date: 2010-04-17 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: bk/models.py:6
+#: bk/models.py:6 templates/bk/transaction.html:13
 msgid "Account"
 msgstr "Konto"
 
@@ -36,17 +36,19 @@ msgstr "Konto"
 msgid "Accounts"
 msgstr "Konten"
 
-#: bk/models.py:9 templates/bk/accounts.html:8
+#: bk/models.py:9 templates/bk/account.html:7 templates/bk/accounts.html:8
 msgid "Account number"
 msgstr "Kontonummer"
 
 #: bk/models.py:9
 msgid ""
-"Number if the account, accroding to BAS. This number is used for classifying "
+"Number of the account, accroding to BAS. This number is used for classifying "
 "accounts, e.g. when calculating income statemant."
 msgstr ""
 
-#: bk/models.py:10 templates/index.html:28 templates/bk/accounts.html:8
+#: bk/models.py:10 templates/index.html:28 templates/bk/account.html:9
+#: templates/bk/account.html.py:14 templates/bk/accounts.html:8
+#: templates/bk/transaction.html:13
 msgid "Balance"
 msgstr "Bilanz"
 
@@ -64,7 +66,8 @@ msgid ""
 "debit and credit."
 msgstr ""
 
-#: bk/models.py:12 bk/models.py:22 templates/bk/accounts.html:8
+#: bk/models.py:12 bk/models.py:22 templates/bk/account.html:8
+#: templates/bk/accounts.html:8 templates/bk/transaction.html:8
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -72,7 +75,7 @@ msgstr "Beschreibung"
 msgid "Describe the account."
 msgstr ""
 
-#: bk/models.py:18
+#: bk/models.py:18 templates/bk/account.html:14
 msgid "Transaction"
 msgstr "Transaktion"
 
@@ -80,7 +83,8 @@ msgstr "Transaktion"
 msgid "Transactions"
 msgstr "Transaktionen"
 
-#: bk/models.py:21 templates/bk/balance.html:6 templates/bk/result.html:7
+#: bk/models.py:21 templates/bk/account.html:6 templates/bk/balance.html:6
+#: templates/bk/result.html:7 templates/bk/transaction.html:7
 msgid "Date"
 msgstr "Datum"
 
@@ -96,11 +100,13 @@ msgstr ""
 msgid "Booking"
 msgstr "Posten"
 
-#: bk/models.py:44
+#: bk/models.py:44 templates/bk/account.html:11
+#: templates/bk/transaction.html:10
 msgid "Bookings"
 msgstr "Posten"
 
-#: bk/models.py:49
+#: bk/models.py:49 templates/bk/account.html:14
+#: templates/bk/transaction.html:13
 msgid "Debit"
 msgstr ""
 
@@ -108,7 +114,8 @@ msgstr ""
 msgid "Debit value"
 msgstr ""
 
-#: bk/models.py:50
+#: bk/models.py:50 templates/bk/account.html:14
+#: templates/bk/transaction.html:13
 msgid "Credit"
 msgstr ""
 
@@ -172,13 +179,28 @@ msgstr ""
 msgid "Bookkeeping admin"
 msgstr "Verwaltung der Buchführung"
 
+#: templates/bk/account.html:3 templates/bk/balance.html:3
+#: templates/bk/transaction.html:3
+msgid "Balance sheet"
+msgstr "Bilanz"
+
+#: templates/bk/account.html:5
+#, fuzzy
+msgid "Account Details"
+msgstr "Kontenübersicht"
+
+#: templates/bk/account.html:14 templates/bk/transaction.html:6
+#: templates/bk/transaction.html.py:13
+msgid "ID"
+msgstr ""
+
 #: templates/bk/accounts.html:3 templates/bk/accounts.html.py:5
 msgid "Account Sheet"
 msgstr "Kontenübersicht"
 
-#: templates/bk/balance.html:3
-msgid "Balance sheet"
-msgstr "Bilanz"
+#: templates/bk/accounts.html:10
+msgid "View movements on this account."
+msgstr ""
 
 #: templates/bk/balance.html:5
 msgid "Balance Sheet"
@@ -217,3 +239,8 @@ msgstr "Ausgaben"
 #: templates/bk/result.html:32
 msgid "Income / Loss"
 msgstr "Gewinn / Verlust"
+
+#: templates/bk/transaction.html:5
+#, fuzzy
+msgid "Transaction Details"
+msgstr "Transaktionen"

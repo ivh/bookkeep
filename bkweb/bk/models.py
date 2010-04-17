@@ -6,7 +6,7 @@ class Account(models.Model):
         verbose_name = _('Account')
         verbose_name_plural = _('Accounts')
 
-    accno = models.IntegerField(_('Account number'), help_text=_('Number if the account, accroding to BAS. This number is used for classifying accounts, e.g. when calculating income statemant.'),primary_key=True)
+    accno = models.IntegerField(_('Account number'), help_text=_('Number of the account, accroding to BAS. This number is used for classifying accounts, e.g. when calculating income statemant.'),primary_key=True)
     balance = models.FloatField(_('Balance'), help_text=_('The current balance of the account'))
     debinc = models.BooleanField(_('Debit increases balance?'), help_text=_('General distinction of accounts, into which direction the balance goes for debit and credit.'))
     description = models.CharField(_('Description'), help_text=_('Describe the account.'),max_length=512)
@@ -22,7 +22,7 @@ class Transaction(models.Model):
     description = models.CharField(_('Description'), help_text=_('Describe the transaction.'),max_length=512)
  
     def __unicode__(self):
-        return u'%d: %s'%(self.id,self.description)
+        return u'%d, %s, %s'%(self.id,self.date.isoformat(),self.description)
 
     def isbalanced(self):
         csum,dsum=0.0,0.0

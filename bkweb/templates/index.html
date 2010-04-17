@@ -24,15 +24,17 @@
 	</ul>
 	<h3>{% trans 'Reports' %}</h3>
         <ul>
-          <li><a href="/accounts/">{% trans 'Accounts' %}</a></li>
+          <li><a href="/account/">{% trans 'Accounts' %}</a></li>
           <li><a href="/balance/">{% trans 'Balance' %}</a></li>
  	  <li><a href="/result/">{% trans 'Result' %}</a></li>
  	  <li><a href="/recalc/">{% trans 'Recalculate' %}</a></li>
         </ul>
 	<h3>{% trans 'Add' %}</h3>
         <ul>
-          <li><a href="/add/cinvoice">{% trans 'Customer Invoice' %}</a></li>
-          <li><a href="/add/linvoice">{% trans 'Supplier Invoice' %}</a></li>
+          <li><a href="/add/customer">{% trans 'Customer' %}</a></li>
+          <li><a href="/add/supplyer">{% trans 'Supplier' %}</a></li>
+	  <li><a href="/add/customerinv">{% trans 'Customer Invoice' %}</a></li>
+          <li><a href="/add/supplyerinv">{% trans 'Supplier Invoice' %}</a></li>
         </ul>
 
          {% endblock %}
@@ -40,9 +42,6 @@
 
     <div id="content">
         {% block content %}
-	<p>{% trans 'Welcome!' %}</p>
-	<p>{% trans 'Choose from the menu.' %}</p>
-	<p>{% trans 'Site language is chosen according to your browser settings. Available so far are English, Swedish and German.' %}</p>
 	{% endblock %}
     </div>
 </body>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-17 11:58+0200\n"
+"POT-Creation-Date: 2010-04-17 14:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Thomas Marquart <thomas@marquart.se>\n"
 "Language-Team: LANGUAGE <t@tmy.se>\n"
@@ -27,7 +27,7 @@ msgstr "Tyska"
 msgid "English"
 msgstr "Engelska"
 
-#: bk/models.py:6
+#: bk/models.py:6 templates/bk/transaction.html:13
 msgid "Account"
 msgstr "Konto"
 
@@ -35,17 +35,21 @@ msgstr "Konto"
 msgid "Accounts"
 msgstr "Konton"
 
-#: bk/models.py:9 templates/bk/accounts.html:8
+#: bk/models.py:9 templates/bk/account.html:7 templates/bk/accounts.html:8
 msgid "Account number"
 msgstr "Kontonummer"
 
 #: bk/models.py:9
 msgid ""
-"Number if the account, accroding to BAS. This number is used for classifying "
+"Number of the account, accroding to BAS. This number is used for classifying "
 "accounts, e.g. when calculating income statemant."
 msgstr ""
+"Kontonummer enligt BAS. Används även för att klassificera konton, t.ex. för "
+"att beräkna resultat."
 
-#: bk/models.py:10 templates/index.html:28 templates/bk/accounts.html:8
+#: bk/models.py:10 templates/index.html:28 templates/bk/account.html:9
+#: templates/bk/account.html.py:14 templates/bk/accounts.html:8
+#: templates/bk/transaction.html:13
 msgid "Balance"
 msgstr "Balans"
 
@@ -62,10 +66,11 @@ msgid ""
 "General distinction of accounts, into which direction the balance goes for "
 "debit and credit."
 msgstr ""
-"Allmän distinktion bland konton. Åt vilket håll går balansen när man"
-"krediterar eller debiterar."
+"Allmän distinktion bland konton. Åt vilket håll går balansen när "
+"mankrediterar eller debiterar."
 
-#: bk/models.py:12 bk/models.py:22 templates/bk/accounts.html:8
+#: bk/models.py:12 bk/models.py:22 templates/bk/account.html:8
+#: templates/bk/accounts.html:8 templates/bk/transaction.html:8
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -73,7 +78,7 @@ msgstr "Beskrivning"
 msgid "Describe the account."
 msgstr "Beskriv kontot."
 
-#: bk/models.py:18
+#: bk/models.py:18 templates/bk/account.html:14
 msgid "Transaction"
 msgstr "Transaktion"
 
@@ -81,7 +86,8 @@ msgstr "Transaktion"
 msgid "Transactions"
 msgstr "Transaktioner"
 
-#: bk/models.py:21 templates/bk/balance.html:6 templates/bk/result.html:7
+#: bk/models.py:21 templates/bk/account.html:6 templates/bk/balance.html:6
+#: templates/bk/result.html:7 templates/bk/transaction.html:7
 msgid "Date"
 msgstr "Datum"
 
@@ -97,11 +103,13 @@ msgstr "Beskriv transaktionen"
 msgid "Booking"
 msgstr "Post"
 
-#: bk/models.py:44
+#: bk/models.py:44 templates/bk/account.html:11
+#: templates/bk/transaction.html:10
 msgid "Bookings"
 msgstr "Poster"
 
-#: bk/models.py:49
+#: bk/models.py:49 templates/bk/account.html:14
+#: templates/bk/transaction.html:13
 msgid "Debit"
 msgstr "Debit"
 
@@ -109,7 +117,8 @@ msgstr "Debit"
 msgid "Debit value"
 msgstr "Värdet som debiteras"
 
-#: bk/models.py:50
+#: bk/models.py:50 templates/bk/account.html:14
+#: templates/bk/transaction.html:13
 msgid "Credit"
 msgstr "Kredit"
 
@@ -146,22 +155,34 @@ msgid "Add"
 msgstr "Lägg till"
 
 #: templates/index.html:34
+msgid "Customer"
+msgstr "Kund"
+
+#: templates/index.html:35
+msgid "Supplier"
+msgstr "Leverantör"
+
+#: templates/index.html:36
 msgid "Customer Invoice"
 msgstr "Kundfaktura"
 
-#: templates/index.html:35
+#: templates/index.html:37
 msgid "Supplier Invoice"
 msgstr "Leverantörsfaktura"
 
-#: templates/index.html:43
+#: templates/add/index.html:3 templates/bk/index.html:3
+msgid "Start"
+msgstr "Startsida"
+
+#: templates/add/index.html:5 templates/bk/index.html:5
 msgid "Welcome!"
 msgstr "Välkommen!"
 
-#: templates/index.html:44
+#: templates/add/index.html:6 templates/bk/index.html:6
 msgid "Choose from the menu."
 msgstr "Välj från menyn."
 
-#: templates/index.html:45
+#: templates/add/index.html:7 templates/bk/index.html:7
 msgid ""
 "Site language is chosen according to your browser settings. Available so far "
 "are English, Swedish and German."
@@ -173,11 +194,24 @@ msgstr ""
 msgid "Bookkeeping admin"
 msgstr "Bokföringsadministration"
 
+#: templates/bk/account.html:3 templates/bk/account.html.py:5
+msgid "Account Details"
+msgstr "Kontodetaljer"
+
+#: templates/bk/account.html:14 templates/bk/transaction.html:6
+#: templates/bk/transaction.html.py:13
+msgid "ID"
+msgstr "ID"
+
 #: templates/bk/accounts.html:3 templates/bk/accounts.html.py:5
 msgid "Account Sheet"
 msgstr "Kontoplan"
 
-#: templates/bk/balance.html:3
+#: templates/bk/accounts.html:10
+msgid "View movements on this account."
+msgstr "Se förändringar på detta konto."
+
+#: templates/bk/balance.html:3 templates/bk/transaction.html:3
 msgid "Balance sheet"
 msgstr "Balansräkning"
 
@@ -218,3 +252,7 @@ msgstr "Utgifter"
 #: templates/bk/result.html:32
 msgid "Income / Loss"
 msgstr "Inkomst / Förlust"
+
+#: templates/bk/transaction.html:5
+msgid "Transaction Details"
+msgstr "Transaktionsdetaljer"

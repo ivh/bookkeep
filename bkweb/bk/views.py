@@ -1,14 +1,13 @@
 # Create your views here.
-from bkweb.bk.models import Account,Booking
+from bkweb.bk.models import Account,Booking,Transaction
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from datetime import date
 
 def index(request):
-    account_list = Account.objects.all().order_by('accno')
-    c=RequestContext(request,{'account_list': account_list})
-    return render_to_response('index.html', c)
+    c=RequestContext(request,{})
+    return render_to_response('bk/index.html', c)
 
 def accounts(request):
     accs = Account.objects.all().order_by('accno')
@@ -74,6 +73,24 @@ def recalc(request):
     c=RequestContext(request,{})
     return render_to_response('bk/done.html', c)
 
+def account(request,accno):
+    bookings=Booking.objects.filter(acc=accno).order_by('id')
+    acc=Account.objects.get(accno=accno)
+    c=RequestContext(request,{'bookings':bookings,
+                              'date':date.today().isoformat(),
+                              'acc':acc,
+                              })
+    return render_to_response('bk/account.html', c)
+
+def transaction(request,transid):
+    trans=Transaction.objects.get(id=transid)
+    bookings=Booking.objects.filter(trans=transid).order_by('id')
+    c=RequestContext(request,{'bookings':bookings,
+                              'date':date.today().isoformat(),
+                              'trans':trans,
+                              })
+    return render_to_response('bk/transaction.html', c)
+    
 
 # long version
 #from django.http import HttpResponse

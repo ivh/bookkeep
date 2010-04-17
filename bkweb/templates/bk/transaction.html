@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% block title %}{{ title }} | {% trans 'Balance sheet' %}{% endblock %}
+{% block content %}
+<h1>{% trans 'Transaction Details' %}</h1>
+<p><strong>{% trans 'ID' %}:</strong> {{ trans.id }}</p>
+<p><strong>{% trans 'Date' %}:</strong> {{ trans.date }}</p>
+<p><strong>{% trans 'Description' %}:</strong> {{ trans.description }}</p>
+
+<h2>{% trans 'Bookings' %}</h2>
+{% if bookings %}
+<table>
+  <tr><th>{% trans 'ID' %}</th><th>{% trans 'Account' %}</th><th>{% trans 'Debit' %}</th><th>{% trans 'Credit' %}</th><th>{% trans 'Balance' %}</th></tr>
+  {% for boo in bookings %}
+  <tr><td>{{ boo.id }}</td><td><a href="/account/{{ boo.acc.accno }}/">{{ boo.acc }}</a></td><td>{{ boo.debit|default:'' }}</td><td>{{ boo.credit|default:'' }}</td><td>{{ boo.acc.balance }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>&#45;&nbsp;&#45;&nbsp;&#45;</p>
+{% endif %}
+
+
+{% endblock %}
