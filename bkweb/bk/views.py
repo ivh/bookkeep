@@ -23,8 +23,8 @@ def _sum_accounts(accs):
     return s
 
 def ledger(request):
-    transs=Booking.objects.all()
-    c=RequestContext(request,{'transs':transs,
+    bookings=Booking.objects.all().order_by('id')
+    c=RequestContext(request,{'bookings':bookings,
                               'date':date.today().isoformat(),
                               })
     return render_to_response('bk/ledger.html',c)

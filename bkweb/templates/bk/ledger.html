@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% block title %}{{ title }} | {% trans 'Ledger' %}{% endblock %}
+{% block content %}
+<h1>{% trans 'Ledger' %}</h1>
+{% if bookings %}
+<table>
+  <tr><th>{% trans 'ID' %}</th><th>{% trans 'Transaction' %}</th><th>{% trans 'Account number' %}</th><th>{% trans 'Debit' %}</th><th>{% trans 'Credit' %}</th></tr>
+  {% for boo in bookings %}
+  <tr><td>{{ boo.id }}</td><td><a href="/transaction/{{ boo.trans.id }}/" title="{% trans 'View transaction.' %}">{{ boo.trans }}</a></td><td><a href="/account/{{ boo.acc.accno }}/" title="{% trans 'View movements on this account.' %}">{{ boo.acc.accno }}</a></td><td>{{ boo.debit|default:'' }}</td><td>{{ boo.credit|default:'' }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>&#45;&nbsp;&#45;&nbsp;&#45;</p>
+{% endif %}
+{% endblock %}

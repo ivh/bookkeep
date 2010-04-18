@@ -6,6 +6,7 @@ urlpatterns = patterns('bkweb.bk.views',
                        (r'^balance/$', 'balance'),
                        (r'^result/$', 'result'),
                        (r'^recalc/$', 'recalc'),
+                       (r'^ledger/$', 'ledger'),
                        (r'^account/(?P<accno>\d+)/$', 'account'),
                        (r'^transaction/(?P<transid>\d+)/$', 'transaction'),
 )

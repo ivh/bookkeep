@@ -1,0 +1,28 @@
+This is my quick attempt for a web-based bookkeeping
+software. It's based on Django, a web framwork for Python,
+see http://www.djangoproject.com/.
+
+The database model is very simple: "Bookings" hold single 
+credit or debit values for an "Account". A "Transaction"
+groups several bookings and should be balanced. There
+are "Invoices" that connect "Counterparts" with
+"Transactions".
+
+Data entry can be done via Django's built-in admin interface
+but more comfortably via a few custom forms for the most common
+cases.
+
+Then there are several ways to look at the data, e.g.
+the ledger, balance and account sheets etc.
+
+
+TODO:
+* make a view for the invoices, split page for customer/supplier
+* finish the forms
+* check that everything so far is calculated correctly
+
+In the long run:
+* JavaScript/AJAX for the forms
+* convert the forms to Djangos form objects.
+* a nice template/CSS
+* multi-user management, authentification
