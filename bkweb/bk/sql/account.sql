@@ -1,5 +1,4 @@
 INSERT INTO bk_account VALUES ("1220", "0.0", "1", "Maskiner och inventarier");
-INSERT INTO bk_account VALUES ("1229", "0.0", "1", "Årets avskrivningar på maskiner och inventarier");
 INSERT INTO bk_account VALUES ("1500", "0.0", "1", "Kundfordringar");
 INSERT INTO bk_account VALUES ("1930", "0.0", "1", "Checkräkningskonto");
 INSERT INTO bk_account VALUES ("2013", "0.0", "0", "Egna uttag");
@@ -16,6 +15,7 @@ INSERT INTO bk_account VALUES ("4600", "0.0", "1", "Legoarbeten och underentrepr
 INSERT INTO bk_account VALUES ("5400", "0.0", "1", "Förbrukningsinventarier och förbrukningsmaterial");
 INSERT INTO bk_account VALUES ("5500", "0.0", "1", "Reparation och underhåll");
 INSERT INTO bk_account VALUES ("6100", "0.0", "1", "Kontorsmateriel och trycksaker");
+INSERT INTO bk_account VALUES ("7830", "0.0", "1", "Avskrivningar på maskiner och inventarier");
 INSERT INTO bk_account VALUES ("7960", "0.0", "1", "Valutakursförluster på fordringar och skulder av rörelsekaraktär");
 INSERT OR IGNORE INTO bk_transaction VALUES ("52", "2009-01-01", "hyra av server");
 INSERT INTO bk_booking VALUES (NULL, "52", "1930", NULL, 441.91);

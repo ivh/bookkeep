@@ -1,12 +1,13 @@
 {% extends "index.html" %}
 {% load i18n %}
-{% block title %}{{ title }} | {% trans 'Add Customer' %}{% endblock %}
+{% block title %}{{ title }} | {% trans 'Add Counterpart' %}{% endblock %}
 {% block content %}
-<h1>{% trans 'Add Customer' %}</h1>
+<h1>{% trans 'Add Counterpart' %}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="/add/customer/" method="post">
+    <input type="hidden" name="pressed" value="true">
     <input type="radio" name="choice" id="customer" value="customer" />
     <label for="customer">{% trans 'Customer' %}</label><br />
     <input type="radio" name="choice" id="supplier" value="supplier" />

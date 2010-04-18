@@ -86,3 +86,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'bkweb.bk',
 )
+
+### Own additions
+
+VAT_RATES = (
+    25,
+    12,
+    6,
+    0,
+)

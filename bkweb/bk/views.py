@@ -2,6 +2,8 @@
 from bkweb.bk.models import Account,Booking,Transaction
 from django.shortcuts import render_to_response,get_object_or_404
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 from datetime import date
 
@@ -20,6 +22,13 @@ def _sum_accounts(accs):
         s+=acc.balance
     return s
 
+def ledger(request):
+    transs=Booking.objects.all()
+    c=RequestContext(request,{'transs':transs,
+                              'date':date.today().isoformat(),
+                              })
+    return render_to_response('bk/ledger.html',c)
+
 def balance(request):
     accs=Account.objects.all()
     assets=accs.filter(accno__gte=1000).filter(accno__lt=2000)
@@ -36,7 +45,6 @@ def balance(request):
                                'liab_sum':lis,
                                'equity_sum':eqs,
                                'date':date.today().isoformat(),
-                               'LANGUAGE_CODE':request.LANGUAGE_CODE,
                                })
     return render_to_response('bk/balance.html',c)
 
@@ -70,8 +78,7 @@ def recalc(request):
                 else: balance+=boo.credit
         acc.balance=balance
         acc.save()
-    c=RequestContext(request,{})
-    return render_to_response('bk/done.html', c)
+    return HttpResponseRedirect(reverse('bkweb.bk.views.accounts'))
 
 def account(request,accno):
     acc=get_object_or_404(Account,accno=accno)

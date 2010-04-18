@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% block title %}{{ title }} | {% trans 'Add Supplier Invoice' %}{% endblock %}
+{% block content %}
+<h1>{% trans 'Add Supplier Invoice' %}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/add/supplierinv/" method="post">
+    <label for="date">{% trans 'Date' %}</label>
+    <input type="text" size="8" maxlength="8" name="date" id="date" value="{{ date }}"/>
+
+    <label for="counterp">{% trans 'Supplier' %}</label>
+    <select name="counterp" id="counterp">
+      {% for cp in counterps %}
+      <option>{{ cp }}</option>
+      {% endfor %}
+    </select>
+    <br /><br />
+
+    <label for="amount">{% trans 'Amount' %}</label>
+    <input type="text" size="7" maxlength="12" name="amount" id="amount"/>
+
+    &nbsp;{% trans 'which includes' %}
+    <select name="vat" id="vat">
+      {% for vat in vats %}
+      <option>{{ vat }}</option>
+      {% endfor %}
+    </select>
+    <label for="vat">&nbsp;%&nbsp;{% trans 'VAT' %}</label><br /><br />
+
+    <label for="name">{% trans 'Description' %}</label>
+    <input type="text" size="55" maxlength="512" name="descr" id="descr"/><br /><br />
+
+    <label for="what">{% trans 'What was bought?' %}</label>
+    <select name="what" id="what">
+      {% for what in whataccs %}
+      <option>{{ what }}</option>
+      {% endfor %}
+    </select>
+    <br /><br />
+
+    <label for="paidfrom">{% trans 'Already paid?' %}&nbsp;{% trans 'From' %}</label>
+    <select name="paidfrom" id="paidfrom">
+      {% for pay in payaccs %}
+      <option>{{ pay }}</option>
+      {% endfor %}
+    </select>
+    <br /><br />
+
+
+
+<input type="submit" value="{% trans 'Save' %}" />
+</form>
+
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import string_concat
 
 class Account(models.Model):
     class Meta:
@@ -71,11 +72,15 @@ class Counterpart(models.Model):
 
     isCustomer = models.BooleanField(_('Customer?'), help_text=_('Is this a customer? (Supplier otherwise)'))
     name = models.CharField(_('Name'), help_text=_('Counterpart name'),max_length=512)
-
+    
+    def save(self, *args, **kwargs):
+        super(Counterpart, self).save(*args, **kwargs) 
+        
     def __unicode__(self):
-        if self.isCustomer: prefix=_('Customer')
-        else: prefix=_('Supplier')
-        return u'%s: %s'%(prefix,self.name)
+        #if self.isCustomer: prefix=_('Customer')
+        #else: prefix=_('Supplier')
+        #return u'%s: %s'%(prefix,self.name)
+        return u'%s'%self.name
 
 
 class Invoice(models.Model):
@@ -83,14 +88,24 @@ class Invoice(models.Model):
         verbose_name = _('Invoice')
         verbose_name_plural = _('Invoices')
 
-    isCustomer = models.BooleanField(_('Customer?'), help_text=_('Is this a customer invoice? (Supplier otherwise)'))
     date = models.DateField(_('Date'), help_text=_('Date of the invoice'))
     counterpart = models.ForeignKey(Counterpart)
     trans = models.OneToOneField(Transaction)
+    paytrans = models.OneToOneField(Transaction,related_name='ispaymentfor')
+    paytrans.null,paytrans.blank=(True,)*2
+
     description = models.CharField(_('Description'), help_text=_('Describe the invoice.'),max_length=512)
 
-    def __unicode__(self):
-        if self.isCustomer: prefix=_('Customer Invoice')
-        else: prefix=_('Supplier Invoice')
-        return u'%s: %s'%(prefix,self.description)
+    def isPaid(self):
+        if self.paytrans: return True
+        else: return False
 
+    def isCustomer(self):
+        return self.counterpart.isCustomer
+
+    def __unicode__(self):
+        if self.isCustomer(): prefix=_('Customer Invoice')
+        else: prefix=_('Supplier Invoice')
+        if self.isPaid(): prefix=string_concat(prefix,_(' (paid)'))
+        else: prefix=string_concat(prefix,_(' (unpaid)'))
+        return u'%s: %s'%(prefix,self.description)
