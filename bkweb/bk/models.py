@@ -2,17 +2,20 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import string_concat
 
+from decimal import Decimal as D
+from decimal import getcontext
+
 class Account(models.Model):
     class Meta:
         verbose_name = _('Account')
         verbose_name_plural = _('Accounts')
 
     accno = models.IntegerField(_('Account number'), help_text=_('Number of the account, according to BAS. This number is used for classifying accounts, e.g. when calculating income statemant.'),primary_key=True)
-    balance = models.FloatField(_('Balance'), help_text=_('The current balance of the account'))
+    balance = models.DecimalField(_('Balance'), help_text=_('The current balance of the account'),max_digits=8, decimal_places=2)
     debinc = models.BooleanField(_('Debit increases balance?'), help_text=_('General distinction of accounts, into which direction the balance goes for debit and credit.'))
     description = models.CharField(_('Description'), help_text=_('Describe the account.'),max_length=512)
     def __unicode__(self):
-        return '%d, '%self.accno + self.description
+        return '%d %s'%(self.accno,self.description)
     
 class Transaction(models.Model):
     class Meta:
@@ -26,12 +29,13 @@ class Transaction(models.Model):
         return u'%d, %s, %s'%(self.id,self.date.isoformat(),self.description)
 
     def isbalanced(self):
-        csum,dsum=0.0,0.0
+        csum,dsum=D('0.00'),D('0.00')
         for booking in self.booking_set.all():
             if booking.credit: csum+=booking.credit
             if booking.debit: dsum+=booking.debit
         bal=csum-dsum
-        return (bal < 0.01) and (bal > -0.01)
+        #return (bal < 0.01) and (bal > -0.01) #old
+        return bal == D('0.00')
     
     def save(self, *args, **kwargs):
         # dont save unbalanced transactions
@@ -47,11 +51,11 @@ class Booking(models.Model):
     # this should automatically make Transaction.booking_set work
     trans = models.ForeignKey(Transaction)
     acc = models.ForeignKey(Account)
-    debit = models.FloatField(_('Debit'), help_text=_('Debit value'))
-    credit = models.FloatField(_('Credit'), help_text=_('Credit value'))
+    debit = models.DecimalField(_('Debit'), help_text=_('Debit value'),max_digits=8, decimal_places=2)
+    credit = models.DecimalField(_('Credit'), help_text=_('Credit value'),max_digits=8, decimal_places=2)
     credit.blank,debit.blank,credit.null,debit.null=(True,)*4
     def __unicode__(self):
-        return u'Account:%d D:%.2f C:%.2f'%(self.acc.accno,self.debit or 0.0,self.credit or 0.0)
+        return u'Booking on (%d) D:%s C:%s'%(self.acc,self.debit or '',self.credit or '')
 
     def save(self, *args, **kwargs):
         super(Booking, self).save(*args, **kwargs) 
@@ -71,7 +75,7 @@ class Counterpart(models.Model):
         verbose_name_plural = _('Counterparts')
 
     isCustomer = models.BooleanField(_('Customer?'), help_text=_('Is this a customer? (Supplier otherwise)'))
-    name = models.CharField(_('Name'), help_text=_('Counterpart name'),max_length=512)
+    name = models.CharField(_('Name'), help_text=_('Counterpart name'),max_length=512,unique=True)
     
     def save(self, *args, **kwargs):
         super(Counterpart, self).save(*args, **kwargs) 
@@ -90,7 +94,7 @@ class Invoice(models.Model):
 
     date = models.DateField(_('Date'), help_text=_('Date of the invoice'))
     counterpart = models.ForeignKey(Counterpart)
-    trans = models.OneToOneField(Transaction)
+    trans = models.OneToOneField(Transaction,related_name='istransactionfor')
     paytrans = models.OneToOneField(Transaction,related_name='ispaymentfor')
     paytrans.null,paytrans.blank=(True,)*2
 

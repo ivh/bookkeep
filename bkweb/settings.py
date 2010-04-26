@@ -87,11 +87,3 @@ INSTALLED_APPS = (
     'bkweb.bk',
 )
 
-### Own additions
-
-VAT_RATES = (
-    25,
-    12,
-    6,
-    0,
-)

@@ -4,16 +4,9 @@
 {% block content %}
 <h1>{% trans 'Add Counterpart' %}</h1>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="/add/customer/" method="post">
-    <input type="hidden" name="pressed" value="true">
-    <input type="radio" name="choice" id="customer" value="customer" />
-    <label for="customer">{% trans 'Customer' %}</label><br />
-    <input type="radio" name="choice" id="supplier" value="supplier" />
-    <label for="supplier">{% trans 'Supplier' %}</label><br /><br />
-    <label for="name">{% trans 'Name' %}</label>
-    <input type="text" size="35" maxlength="512" name="name" id="name"/><br /><br />
+<form action="." method="post">
+<table>   {{ counterp.as_table }}</table>
 <input type="submit" value="{% trans 'Save' %}" />
 </form>
 

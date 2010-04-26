@@ -6,47 +6,8 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="/add/customerinv_recieve/" method="post">
-    <label for="date">{% trans 'Date' %}</label>
-    <input type="text" size="10" maxlength="10" name="date" id="date" value="{{ date }}"/>
-
-    <label for="counterp">{% trans 'Customer' %}</label>
-    <select name="counterp" id="counterp">
-      {% for cp in counterps %}
-      <option value="{{ cp.id }}">{{ cp }}</option>
-      {% endfor %}
-    </select>
-    <br /><br />
-
-    <label for="amount">{% trans 'Amount' %}</label>
-    <input type="text" size="7" maxlength="12" name="amount" id="amount"/>
-
-    &nbsp;{% trans 'to which get added' %}
-    <select name="vat" id="vat">
-      {% for vat in vats %}
-      <option>{{ vat }}</option>
-      {% endfor %}
-    </select>
-    <label for="vat">&nbsp;%&nbsp;{% trans 'VAT' %}</label><br /><br />
-
-    <label for="name">{% trans 'Description' %}</label>
-    <input type="text" size="55" maxlength="512" name="descr" id="descr"/><br /><br />
-
-    <label for="what">{% trans 'What was sold?' %}</label>
-    <select name="what" id="what">
-      {% for what in whataccs %}
-      <option value="{{ what.accno }}">{{ what }}</option>
-      {% endfor %}
-    </select>
-    <br /><br />
-
-    <label for="paidfrom">{% trans 'Already paid?' %}&nbsp;{% trans 'To' %}</label>
-    <select name="paidfrom" id="paidfrom">
-      <option value=""></option>
-      {% for pay in payaccs %}
-      <option value="{{ pay.accno }}">{{ pay }}</option>
-      {% endfor %}
-    </select>
+<form action="." method="post">
+ <table> {{ custinv.as_table }} </table>
     <br /><br />
 
 
