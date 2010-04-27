@@ -37,7 +37,7 @@ class CustInvForm(forms.Form):
     plusvat=forms.ChoiceField(label=_('plus VAT'),choices=VAT_RATES)
     descr=forms.CharField(label=_('Description'),min_length=5,max_length=512)
     what=forms.ChoiceField(label=_('What was sold?'),choices=sellfrom_accounts.values_list('accno','description'))
-    payed=forms.ChoiceField(label=_('Paid to'),choices=((None,''),*getpayed_accounts.values_list('accno','description')),required=False)
+    payed=forms.ChoiceField(label=_('Paid to'),choices=[(None,'')].append(getpayed_accounts.values_list('accno','description')),required=False)
     currdiff=forms.DecimalField(label=_('currency difference'),required=False)
 
 class SuppInvForm(forms.Form):
@@ -90,6 +90,7 @@ def customerinv(request):
             Booking(trans=trans,acc=claims_acc,debit=netto).save()
             Booking(trans=trans,acc=what_acc,credit=d['amount']).save()
             if d['currdiff']:
+                pass
             
             Invoice(date=d['date'], counterpart=cp, trans=trans, description=d['descr']).save()
             
