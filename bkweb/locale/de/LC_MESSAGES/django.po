@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bookkeep\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-19 08:53+0200\n"
-"PO-Revision-Date: 2010-04-18 13:51+0100\n"
-"Last-Translator: Thomas Marquart <thomas@marquart.se>\n"
+"POT-Creation-Date: 2010-04-27 10:52+0200\n"
+"PO-Revision-Date: 2010-04-27 10:55+0100\n"
+"Last-Translator: thomas marquart <thomas@marquart.se>\n"
 "Language-Team: tom <t@tmy.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,175 +27,247 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: add/views.py:22
-msgid "Please fill out everything!"
-msgstr "Bitte alles ausfüllen!"
-
-#: add/views.py:34 add/views.py:90
-msgid "Something went wrong!"
-msgstr "Etwas ging schief!"
-
-#: add/views.py:66 bk/models.py:88
-msgid "Invoice"
-msgstr "Rechnung"
-
-#: bk/models.py:7 templates/bk/transaction.html:13
-msgid "Account"
-msgstr "Konto"
-
-#: bk/models.py:8 templates/index.html:28
-msgid "Accounts"
-msgstr "Konten"
-
-#: bk/models.py:10 templates/bk/account.html:7 templates/bk/accounts.html:8
-#: templates/bk/ledger.html:8
-msgid "Account number"
-msgstr "Kontonummer"
-
-#: bk/models.py:10
-msgid ""
-"Number of the account, according to BAS. This number is used for classifying "
-"accounts, e.g. when calculating income statemant."
-msgstr ""
-"Kontonummer nach BAS-System. Die Nummer wird u.a. zur Kalssifizierung des "
-"Kontos benutzt, z.B. um Bilanz zu errechnen."
-
-#: bk/models.py:11 templates/index.html:29 templates/bk/account.html:9
-#: templates/bk/account.html.py:14 templates/bk/accounts.html:8
-#: templates/bk/transaction.html:13
-msgid "Balance"
-msgstr "Bilanz"
-
-#: bk/models.py:11
-msgid "The current balance of the account"
-msgstr "Derzeitiger Kontostand"
-
-#: bk/models.py:12
-msgid "Debit increases balance?"
-msgstr "Erhöht Debet den Kontostand?"
-
-#: bk/models.py:12
-msgid ""
-"General distinction of accounts, into which direction the balance goes for "
-"debit and credit."
-msgstr ""
-"Generelle Unterscheidung von Konten, also in welche Richtung der Kontostand "
-"für Debet und Kredit geht."
-
-#: bk/models.py:13 bk/models.py:23 bk/models.py:97
-#: templates/add/customerinv.html:32 templates/add/supplierinv.html:32
-#: templates/bk/account.html:8 templates/bk/accounts.html:8
-#: templates/bk/transaction.html:8
-msgid "Description"
-msgstr "Beschreibung"
-
-#: bk/models.py:13
-msgid "Describe the account."
-msgstr "Beschreibe das Konto"
-
-#: bk/models.py:19 templates/bk/account.html:14 templates/bk/ledger.html:8
-msgid "Transaction"
-msgstr "Transaktion"
-
-#: bk/models.py:20
-msgid "Transactions"
-msgstr "Transaktionen"
-
-#: bk/models.py:22 bk/models.py:91 templates/add/customerinv.html:10
-#: templates/add/supplierinv.html:10 templates/bk/account.html:6
-#: templates/bk/balance.html:6 templates/bk/result.html:7
+#: add/views.py:34
+#: add/views.py:45
+#: bk/models.py:25
+#: bk/models.py:95
+#: templates/bk/account.html:6
+#: templates/bk/balance.html:6
+#: templates/bk/result.html:7
 #: templates/bk/transaction.html:7
 msgid "Date"
 msgstr "Datum"
 
+#: add/views.py:35
+msgid "Customer"
+msgstr "Kunde"
+
+#: add/views.py:36
+msgid "Gross amount"
+msgstr "Bruttobetrag"
+
+#: add/views.py:37
+msgid "plus VAT"
+msgstr "plus Ust."
+
+#: add/views.py:38
+#: add/views.py:49
+#: bk/models.py:16
+#: bk/models.py:26
+#: bk/models.py:101
+#: templates/bk/account.html:8
+#: templates/bk/accounts.html:8
+#: templates/bk/transaction.html:8
+msgid "Description"
+msgstr "Beschreibung"
+
+#: add/views.py:39
+msgid "What was sold?"
+msgstr "Was wurde verkauft?"
+
+#: add/views.py:40
+msgid "Paid to"
+msgstr "Gezahlt an"
+
+#: add/views.py:41
+#: add/views.py:52
+msgid "Actual Amout"
+msgstr "Wirkl. Betrag"
+
+#: add/views.py:41
+#: add/views.py:52
+msgid "If the is a currency gain/loss, write the amount here that was actually paid."
+msgstr "Bei Währungsunterschieden hier den wirklich gezahlten Betrag angeben."
+
+#: add/views.py:42
+#: add/views.py:53
+msgid "Non-paid VAT?"
+msgstr "Nicht gezahlte Ust?"
+
+#: add/views.py:42
+#: add/views.py:53
+msgid "In case of EU-transaction, no VAT is paid, but needs to be accounted for."
+msgstr "Bei EU-Transaktionen wird keine Ust. gezahlt, muss aber buchgeführt werden."
+
+#: add/views.py:46
+msgid "Supplier"
+msgstr "Lieferant"
+
+#: add/views.py:47
+msgid "Amount"
+msgstr "Betrag"
+
+#: add/views.py:48
+msgid "Included VAT"
+msgstr "Beinhaltete Ust."
+
+#: add/views.py:50
+msgid "What was bought?"
+msgstr "Was wurde gekauft?"
+
+#: add/views.py:51
+msgid "Paid from"
+msgstr "Gezahlt von"
+
+#: add/views.py:89
+#: add/views.py:124
+#: bk/models.py:92
+msgid "Invoice"
+msgstr "Rechnung"
+
+#: bk/models.py:10
+#: templates/bk/transaction.html:13
+msgid "Account"
+msgstr "Konto"
+
+#: bk/models.py:11
+#: templates/index.html:28
+msgid "Accounts"
+msgstr "Konten"
+
+#: bk/models.py:13
+#: templates/bk/account.html:7
+#: templates/bk/accounts.html:8
+#: templates/bk/ledger.html:8
+msgid "Account number"
+msgstr "Kontonummer"
+
+#: bk/models.py:13
+msgid "Number of the account, according to BAS. This number is used for classifying accounts, e.g. when calculating income statemant."
+msgstr "Kontonummer nach BAS-System. Die Nummer wird u.a. zur Kalssifizierung des Kontos benutzt, z.B. um Bilanz zu errechnen."
+
+#: bk/models.py:14
+#: templates/index.html:29
+#: templates/bk/account.html:9
+#: templates/bk/account.html.py:14
+#: templates/bk/accounts.html:8
+#: templates/bk/transaction.html:13
+msgid "Balance"
+msgstr "Bilanz"
+
+#: bk/models.py:14
+msgid "The current balance of the account"
+msgstr "Derzeitiger Kontostand"
+
+#: bk/models.py:15
+msgid "Debit increases balance?"
+msgstr "Erhöht Debet den Kontostand?"
+
+#: bk/models.py:15
+msgid "General distinction of accounts, into which direction the balance goes for debit and credit."
+msgstr "Generelle Unterscheidung von Konten, also in welche Richtung der Kontostand für Debet und Kredit geht."
+
+#: bk/models.py:16
+msgid "Describe the account."
+msgstr "Beschreibe das Konto"
+
 #: bk/models.py:22
+#: templates/bk/account.html:14
+#: templates/bk/ledger.html:8
+msgid "Transaction"
+msgstr "Transaktion"
+
+#: bk/models.py:23
+msgid "Transactions"
+msgstr "Transaktionen"
+
+#: bk/models.py:25
 msgid "Date of the transaction"
 msgstr "Transaktionsdatum"
 
-#: bk/models.py:23
+#: bk/models.py:26
 msgid "Describe the transaction."
 msgstr "Beschreibe die Transaktion"
 
-#: bk/models.py:44
+#: bk/models.py:48
 msgid "Booking"
 msgstr "Posten"
 
-#: bk/models.py:45 templates/bk/account.html:11
+#: bk/models.py:49
+#: templates/bk/account.html:11
 #: templates/bk/transaction.html:10
 msgid "Bookings"
 msgstr "Posten"
 
-#: bk/models.py:50 templates/bk/account.html:14 templates/bk/ledger.html:8
+#: bk/models.py:54
+#: templates/bk/account.html:14
+#: templates/bk/ledger.html:8
 #: templates/bk/transaction.html:13
 msgid "Debit"
 msgstr "Debet"
 
-#: bk/models.py:50
+#: bk/models.py:54
 msgid "Debit value"
 msgstr "Debet-Wert"
 
-#: bk/models.py:51 templates/bk/account.html:14 templates/bk/ledger.html:8
+#: bk/models.py:55
+#: templates/bk/account.html:14
+#: templates/bk/ledger.html:8
 #: templates/bk/transaction.html:13
 msgid "Credit"
 msgstr "Kredit"
 
-#: bk/models.py:51
+#: bk/models.py:55
 msgid "Credit value"
 msgstr "Kredit-Wert"
 
-#: bk/models.py:70 templates/index.html:34
+#: bk/models.py:74
+#: templates/index.html:34
 msgid "Counterpart"
 msgstr "Gegenüber"
 
-#: bk/models.py:71
+#: bk/models.py:75
 msgid "Counterparts"
 msgstr "Gegenüber"
 
-#: bk/models.py:73
+#: bk/models.py:77
 msgid "Customer?"
 msgstr "Kunde?"
 
-#: bk/models.py:73
+#: bk/models.py:77
 msgid "Is this a customer? (Supplier otherwise)"
 msgstr "Ist dies ein Kunde? (ansonsten Lieferant)"
 
-#: bk/models.py:74 templates/add/customer.html:15
+#: bk/models.py:78
 msgid "Name"
 msgstr "Name"
 
-#: bk/models.py:74
+#: bk/models.py:78
 msgid "Counterpart name"
 msgstr "Name des Gegenüber"
 
-#: bk/models.py:89
+#: bk/models.py:93
 msgid "Invoices"
 msgstr "Rechnungen"
 
-#: bk/models.py:91
+#: bk/models.py:95
 msgid "Date of the invoice"
 msgstr "Rechnungsdatum"
 
-#: bk/models.py:97
+#: bk/models.py:101
 msgid "Describe the invoice."
 msgstr "Beschreibe die Rechnung"
 
-#: bk/models.py:107 templates/index.html:35
+#: bk/models.py:111
+#: templates/index.html:35
 msgid "Customer Invoice"
 msgstr "Kundenrechnung"
 
-#: bk/models.py:108 templates/index.html:36
+#: bk/models.py:112
+#: templates/index.html:36
 msgid "Supplier Invoice"
 msgstr "Lieferantenrechnung"
 
-#: bk/models.py:109
+#: bk/models.py:113
 msgid " (paid)"
 msgstr " (bezahlt)"
 
-#: bk/models.py:110
+#: bk/models.py:114
 msgid " (unpaid)"
 msgstr " (unbezahlt)"
 
-#: templates/index.html:6 templates/index.html.py:22
+#: templates/index.html:6
+#: templates/index.html.py:22
 msgid "Home"
 msgstr "Startseite"
 
@@ -211,10 +283,11 @@ msgstr "Verwalten"
 msgid "Reports"
 msgstr "Berichte"
 
-#: templates/index.html:27 templates/bk/ledger.html:3
+#: templates/index.html:27
+#: templates/bk/ledger.html:3
 #: templates/bk/ledger.html.py:5
 msgid "Ledger"
-msgstr ""
+msgstr "Hauptbuch"
 
 #: templates/index.html:30
 msgid "Result"
@@ -224,105 +297,71 @@ msgstr "Ergebnis"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: templates/add/customer.html:3 templates/add/customer.html.py:5
+#: templates/add/counterp.html:3
+#: templates/add/counterp.html.py:5
 msgid "Add Counterpart"
 msgstr "Gegenüber hinzufügen"
 
-#: templates/add/customer.html:12 templates/add/customerinv.html:13
-msgid "Customer"
-msgstr "Kunde"
-
-#: templates/add/customer.html:14 templates/add/supplierinv.html:13
-msgid "Supplier"
-msgstr "Lieferant"
-
-#: templates/add/customer.html:17 templates/add/customerinv.html:54
-#: templates/add/supplierinv.html:53
+#: templates/add/counterp.html:10
+#: templates/add/customerinv.html:15
+#: templates/add/supplierinv.html:15
 msgid "Save"
 msgstr "Speichern"
 
-#: templates/add/customerinv.html:3 templates/add/customerinv.html.py:5
+#: templates/add/customerinv.html:3
+#: templates/add/customerinv.html.py:5
 msgid "Add Customer Invoice"
 msgstr "Kundenrechnung hinzufügen"
 
-#: templates/add/customerinv.html:21 templates/add/supplierinv.html:21
-msgid "Amount"
-msgstr "Betrag"
-
-#: templates/add/customerinv.html:24
-msgid "to which get added"
-msgstr "plus"
-
-#: templates/add/customerinv.html:30 templates/add/supplierinv.html:30
-msgid "VAT"
-msgstr "USt."
-
-#: templates/add/customerinv.html:35
-msgid "What was sold?"
-msgstr "Was wurde verkauft?"
-
-#: templates/add/customerinv.html:43 templates/add/supplierinv.html:43
-msgid "Already paid?"
-msgstr "Schon bezahlt?"
-
-#: templates/add/customerinv.html:43
-msgid "To"
-msgstr "Zu"
-
-#: templates/add/index.html:3 templates/bk/index.html:3
+#: templates/add/index.html:3
+#: templates/bk/index.html:3
 msgid "Start"
 msgstr "Startseite"
 
-#: templates/add/index.html:5 templates/bk/index.html:5
+#: templates/add/index.html:5
+#: templates/bk/index.html:5
 msgid "Welcome!"
 msgstr "Willkommen!"
 
-#: templates/add/index.html:6 templates/bk/index.html:6
+#: templates/add/index.html:6
+#: templates/bk/index.html:6
 msgid "Choose from the menu."
 msgstr "Wähle aus dem Menu."
 
-#: templates/add/index.html:7 templates/bk/index.html:7
-msgid ""
-"Site language is chosen according to your browser settings. Available so far "
-"are English, Swedish and German."
-msgstr ""
-"Diese Seite wählt die Sprache nach den Einstellungen deines Browsers. Bisher "
-"gibt es Deutsch, Englisch und Schwedisch."
+#: templates/add/index.html:7
+#: templates/bk/index.html:7
+msgid "Site language is chosen according to your browser settings. Available so far are English, Swedish and German."
+msgstr "Diese Seite wählt die Sprache nach den Einstellungen deines Browsers. Bisher gibt es Deutsch, Englisch und Schwedisch."
 
-#: templates/add/supplierinv.html:3 templates/add/supplierinv.html.py:5
+#: templates/add/supplierinv.html:3
+#: templates/add/supplierinv.html.py:5
 msgid "Add Supplier Invoice"
 msgstr "Lieferantenrechnung hinzufügen"
 
-#: templates/add/supplierinv.html:24
-msgid "which includes"
-msgstr "beinhaltet"
-
-#: templates/add/supplierinv.html:35
-msgid "What was bought?"
-msgstr "Was wurde gekauft?"
-
-#: templates/add/supplierinv.html:43
-msgid "From"
-msgstr "Von"
-
-#: templates/admin/base_site.html:4 templates/admin/base_site.html.py:7
+#: templates/admin/base_site.html:4
+#: templates/admin/base_site.html.py:7
 msgid "Bookkeeping admin"
 msgstr "Verwaltung der Buchführung"
 
-#: templates/bk/account.html:3 templates/bk/account.html.py:5
+#: templates/bk/account.html:3
+#: templates/bk/account.html.py:5
 msgid "Account Details"
 msgstr "Kontendetails"
 
-#: templates/bk/account.html:14 templates/bk/ledger.html:8
-#: templates/bk/transaction.html:6 templates/bk/transaction.html.py:13
+#: templates/bk/account.html:14
+#: templates/bk/ledger.html:8
+#: templates/bk/transaction.html:6
+#: templates/bk/transaction.html.py:13
 msgid "ID"
 msgstr "ID"
 
-#: templates/bk/accounts.html:3 templates/bk/accounts.html.py:5
+#: templates/bk/accounts.html:3
+#: templates/bk/accounts.html.py:5
 msgid "Account Sheet"
 msgstr "Kontenübersicht"
 
-#: templates/bk/accounts.html:10 templates/bk/ledger.html:10
+#: templates/bk/accounts.html:10
+#: templates/bk/ledger.html:10
 msgid "View movements on this account."
 msgstr "Zeige Bewegungen auf diesem Konto"
 
@@ -330,7 +369,8 @@ msgstr "Zeige Bewegungen auf diesem Konto"
 msgid "Recalculate"
 msgstr "Neu berechnen"
 
-#: templates/bk/balance.html:3 templates/bk/transaction.html:3
+#: templates/bk/balance.html:3
+#: templates/bk/transaction.html:3
 msgid "Balance sheet"
 msgstr "Bilanz"
 
@@ -342,8 +382,10 @@ msgstr "Bilanz"
 msgid "Assets"
 msgstr "Aktiva"
 
-#: templates/bk/balance.html:13 templates/bk/balance.html.py:25
-#: templates/bk/balance.html:37 templates/bk/result.html:14
+#: templates/bk/balance.html:13
+#: templates/bk/balance.html.py:25
+#: templates/bk/balance.html:37
+#: templates/bk/result.html:14
 #: templates/bk/result.html.py:26
 msgid "Sum"
 msgstr "Summe"
@@ -357,11 +399,11 @@ msgid "Equity"
 msgstr "Eigenkapital"
 
 #: templates/bk/ledger.html:10
-#, fuzzy
 msgid "View transaction."
-msgstr "Transaktion"
+msgstr "Transaktion ansehen."
 
-#: templates/bk/result.html:3 templates/bk/result.html.py:6
+#: templates/bk/result.html:3
+#: templates/bk/result.html.py:6
 msgid "Income Statement"
 msgstr "Gewinn- und Verlustrechnung"
 
@@ -381,11 +423,26 @@ msgstr "Gewinn / Verlust"
 msgid "Transaction Details"
 msgstr "Transaktionsdetails"
 
+#~ msgid "Please fill out everything!"
+#~ msgstr "Bitte alles ausfüllen!"
+#~ msgid "Something went wrong!"
+#~ msgstr "Etwas ging schief!"
+#~ msgid "to which get added"
+#~ msgstr "plus"
+#~ msgid "VAT"
+#~ msgstr "USt."
+#~ msgid "Already paid?"
+#~ msgstr "Schon bezahlt?"
+#~ msgid "To"
+#~ msgstr "Zu"
+#~ msgid "which includes"
+#~ msgstr "beinhaltet"
+#~ msgid "From"
+#~ msgstr "Von"
 #~ msgid "Is this a customer invoice? (Supplier otherwise)"
 #~ msgstr "Ist dies eine Kundenrechnung? (von Lieferant ansonsten)"
-
 #~ msgid "Supplyer"
 #~ msgstr "Lieferant"
-
 #~ msgid "Supplyer Invoice"
 #~ msgstr "Lieferantenrechnung"
+

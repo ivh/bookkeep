@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from datetime import date
+from decimal import Decimal as D
 
 def index(request):
     c=RequestContext(request,{})
@@ -17,7 +18,7 @@ def accounts(request):
     return render_to_response('bk/accounts.html', c)
 
 def _sum_accounts(accs):
-    s=0.0
+    s=D('0.00')
     for acc in accs:
         s+=acc.balance
     return s
@@ -68,7 +69,7 @@ def result(request):
 def recalc(request):
     accs = Account.objects.all().order_by('accno')
     for acc in accs:
-        balance=0.0
+        balance=D('0.00')
         for boo in acc.booking_set.all():
             if boo.debit:
                 if acc.debinc: balance+=boo.debit
@@ -90,6 +91,29 @@ def account(request,accno):
     return render_to_response('bk/account.html', c)
 
 def transaction(request,transid):
+    trans=get_object_or_404(Transaction,id=transid)
+    bookings=Booking.objects.filter(trans=transid).order_by('id')
+    c=RequestContext(request,{'bookings':bookings,
+                              'date':date.today().isoformat(),
+                              'trans':trans,
+                              })
+    return render_to_response('bk/transaction.html', c)
+
+def invoice(request,invid=None):
+    if invid==None:
+        pass
+    elif infid=='unpaid':
+        pass
+    else:
+        trans=get_object_or_404(Transaction,id=transid)
+        bookings=Booking.objects.filter(trans=transid).order_by('id')
+    c=RequestContext(request,{'bookings':bookings,
+                              'date':date.today().isoformat(),
+                              'trans':trans,
+                              })
+    return render_to_response('bk/transaction.html', c)
+
+def pay_invoice(request,invid):
     trans=get_object_or_404(Transaction,id=transid)
     bookings=Booking.objects.filter(trans=transid).order_by('id')
     c=RequestContext(request,{'bookings':bookings,

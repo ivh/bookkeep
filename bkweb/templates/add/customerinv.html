@@ -1,13 +1,13 @@
 {% extends "index.html" %}
 {% load i18n %}
-{% block title %}{{ title }} | {% trans 'Add Customer Invoice' %}{% endblock %}
+{% block title %}{% trans 'Add Customer Invoice' %}{% endblock %}
 {% block content %}
 <h1>{% trans 'Add Customer Invoice' %}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="." method="post">
- <table> {{ custinv.as_table }} </table>
+ <table> {{ form.as_table }} </table>
     <br /><br />
 
 

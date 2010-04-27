@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bookkeep\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-19 08:53+0200\n"
-"PO-Revision-Date: 2010-04-19 08:53+0100\n"
+"POT-Creation-Date: 2010-04-27 10:52+0200\n"
+"PO-Revision-Date: 2010-04-27 10:58+0100\n"
 "Last-Translator: thomas marquart <thomas@marquart.se>\n"
 "Language-Team: tom <t@tmy.se>\n"
 "MIME-Version: 1.0\n"
@@ -27,42 +27,116 @@ msgstr "Tyska"
 msgid "English"
 msgstr "Engelska"
 
-#: add/views.py:22
-msgid "Please fill out everything!"
-msgstr "Var god fyll i allt!"
-
 #: add/views.py:34
-#: add/views.py:90
-msgid "Something went wrong!"
-msgstr "Något gick fel!"
+#: add/views.py:45
+#: bk/models.py:25
+#: bk/models.py:95
+#: templates/bk/account.html:6
+#: templates/bk/balance.html:6
+#: templates/bk/result.html:7
+#: templates/bk/transaction.html:7
+msgid "Date"
+msgstr "Datum"
 
-#: add/views.py:66
-#: bk/models.py:88
+#: add/views.py:35
+msgid "Customer"
+msgstr "Kund"
+
+#: add/views.py:36
+msgid "Gross amount"
+msgstr "Bruttobelopp"
+
+#: add/views.py:37
+msgid "plus VAT"
+msgstr "moms tilkommer"
+
+#: add/views.py:38
+#: add/views.py:49
+#: bk/models.py:16
+#: bk/models.py:26
+#: bk/models.py:101
+#: templates/bk/account.html:8
+#: templates/bk/accounts.html:8
+#: templates/bk/transaction.html:8
+msgid "Description"
+msgstr "Beskrivning"
+
+#: add/views.py:39
+msgid "What was sold?"
+msgstr "Vad har sålts?"
+
+#: add/views.py:40
+msgid "Paid to"
+msgstr "Betalt till"
+
+#: add/views.py:41
+#: add/views.py:52
+msgid "Actual Amout"
+msgstr "Verklig belopp"
+
+#: add/views.py:41
+#: add/views.py:52
+msgid "If the is a currency gain/loss, write the amount here that was actually paid."
+msgstr "Vid valutaskillnader, skriv in beloppet här som verkligen betalades."
+
+#: add/views.py:42
+#: add/views.py:53
+msgid "Non-paid VAT?"
+msgstr "Icke-betalt moms?"
+
+#: add/views.py:42
+#: add/views.py:53
+msgid "In case of EU-transaction, no VAT is paid, but needs to be accounted for."
+msgstr "Vid EU-transaktioner betalas inte moms, men den måste bokföras."
+
+#: add/views.py:46
+msgid "Supplier"
+msgstr "Leverantör"
+
+#: add/views.py:47
+msgid "Amount"
+msgstr "Belopp"
+
+#: add/views.py:48
+msgid "Included VAT"
+msgstr "Inkluderad moms"
+
+#: add/views.py:50
+msgid "What was bought?"
+msgstr "Vad har köpts?"
+
+#: add/views.py:51
+msgid "Paid from"
+msgstr "Betalt från"
+
+#: add/views.py:89
+#: add/views.py:124
+#: bk/models.py:92
 msgid "Invoice"
 msgstr "Faktura"
 
-#: bk/models.py:7
+#: bk/models.py:10
 #: templates/bk/transaction.html:13
 msgid "Account"
 msgstr "Konto"
 
-#: bk/models.py:8
+#: bk/models.py:11
 #: templates/index.html:28
 msgid "Accounts"
 msgstr "Konton"
 
-#: bk/models.py:10
+#: bk/models.py:13
 #: templates/bk/account.html:7
 #: templates/bk/accounts.html:8
 #: templates/bk/ledger.html:8
 msgid "Account number"
 msgstr "Kontonummer"
 
-#: bk/models.py:10
+#: bk/models.py:13
 msgid "Number of the account, according to BAS. This number is used for classifying accounts, e.g. when calculating income statemant."
 msgstr "Kontonummer enligt BAS. Används även för att klassificera konton, t.ex. för att beräkna resultat."
 
-#: bk/models.py:11
+#: bk/models.py:14
 #: templates/index.html:29
 #: templates/bk/account.html:9
 #: templates/bk/account.html.py:14
@@ -71,147 +145,124 @@ msgstr "Kontonummer enligt BAS. Används även för att klassificera konton, t.e
 msgid "Balance"
 msgstr "Balans"
 
-#: bk/models.py:11
+#: bk/models.py:14
 msgid "The current balance of the account"
 msgstr "Kontots nuvarade balans"
 
-#: bk/models.py:12
+#: bk/models.py:15
 msgid "Debit increases balance?"
 msgstr "Höjer debit kontots balans?"
 
-#: bk/models.py:12
+#: bk/models.py:15
 msgid "General distinction of accounts, into which direction the balance goes for debit and credit."
 msgstr "Allmän distinktion bland konton. Åt vilket håll går balansen när mankrediterar eller debiterar."
 
-#: bk/models.py:13
-#: bk/models.py:23
-#: bk/models.py:97
-#: templates/add/customerinv.html:32
-#: templates/add/supplierinv.html:32
-#: templates/bk/account.html:8
-#: templates/bk/accounts.html:8
-#: templates/bk/transaction.html:8
-msgid "Description"
-msgstr "Beskrivning"
-
-#: bk/models.py:13
+#: bk/models.py:16
 msgid "Describe the account."
 msgstr "Beskriv kontot."
 
-#: bk/models.py:19
+#: bk/models.py:22
 #: templates/bk/account.html:14
 #: templates/bk/ledger.html:8
 msgid "Transaction"
 msgstr "Transaktion"
 
-#: bk/models.py:20
+#: bk/models.py:23
 msgid "Transactions"
 msgstr "Transaktioner"
 
-#: bk/models.py:22
-#: bk/models.py:91
-#: templates/add/customerinv.html:10
-#: templates/add/supplierinv.html:10
-#: templates/bk/account.html:6
-#: templates/bk/balance.html:6
-#: templates/bk/result.html:7
-#: templates/bk/transaction.html:7
-msgid "Date"
-msgstr "Datum"
-
-#: bk/models.py:22
+#: bk/models.py:25
 msgid "Date of the transaction"
 msgstr "Transatktionsdatum"
 
-#: bk/models.py:23
+#: bk/models.py:26
 msgid "Describe the transaction."
 msgstr "Beskriv transaktionen"
 
-#: bk/models.py:44
+#: bk/models.py:48
 msgid "Booking"
 msgstr "Post"
 
-#: bk/models.py:45
+#: bk/models.py:49
 #: templates/bk/account.html:11
 #: templates/bk/transaction.html:10
 msgid "Bookings"
 msgstr "Poster"
 
-#: bk/models.py:50
+#: bk/models.py:54
 #: templates/bk/account.html:14
 #: templates/bk/ledger.html:8
 #: templates/bk/transaction.html:13
 msgid "Debit"
 msgstr "Debit"
 
-#: bk/models.py:50
+#: bk/models.py:54
 msgid "Debit value"
 msgstr "Värdet som debiteras"
 
-#: bk/models.py:51
+#: bk/models.py:55
 #: templates/bk/account.html:14
 #: templates/bk/ledger.html:8
 #: templates/bk/transaction.html:13
 msgid "Credit"
 msgstr "Kredit"
 
-#: bk/models.py:51
+#: bk/models.py:55
 msgid "Credit value"
 msgstr "Värdet som krediteras"
 
-#: bk/models.py:70
+#: bk/models.py:74
 #: templates/index.html:34
 msgid "Counterpart"
 msgstr "Motpart"
 
-#: bk/models.py:71
+#: bk/models.py:75
 msgid "Counterparts"
 msgstr "Motparter"
 
-#: bk/models.py:73
+#: bk/models.py:77
 msgid "Customer?"
 msgstr "Kund?"
 
-#: bk/models.py:73
+#: bk/models.py:77
 msgid "Is this a customer? (Supplier otherwise)"
 msgstr "Är detta en kund? (Leverantör annars)"
 
-#: bk/models.py:74
-#: templates/add/customer.html:15
+#: bk/models.py:78
 msgid "Name"
 msgstr "Namn"
 
-#: bk/models.py:74
+#: bk/models.py:78
 msgid "Counterpart name"
 msgstr "Motparts namn"
 
-#: bk/models.py:89
+#: bk/models.py:93
 msgid "Invoices"
 msgstr "Fakturor"
 
-#: bk/models.py:91
+#: bk/models.py:95
 msgid "Date of the invoice"
 msgstr "Fakturadatum"
 
-#: bk/models.py:97
+#: bk/models.py:101
 msgid "Describe the invoice."
 msgstr "Beskriv fakturan."
 
-#: bk/models.py:107
+#: bk/models.py:111
 #: templates/index.html:35
 msgid "Customer Invoice"
 msgstr "Kundfaktura"
 
-#: bk/models.py:108
+#: bk/models.py:112
 #: templates/index.html:36
 msgid "Supplier Invoice"
 msgstr "Leverantörsfaktura"
 
-#: bk/models.py:109
+#: bk/models.py:113
 msgid " (paid)"
 msgstr " (betald)"
 
-#: bk/models.py:110
+#: bk/models.py:114
 msgid " (unpaid)"
 msgstr " (obetald)"
 
@@ -246,24 +297,14 @@ msgstr "Resultaträkning"
 msgid "Add"
 msgstr "Lägg till"
 
-#: templates/add/customer.html:3
-#: templates/add/customer.html.py:5
+#: templates/add/counterp.html:3
+#: templates/add/counterp.html.py:5
 msgid "Add Counterpart"
 msgstr "Lägg till motpart"
 
-#: templates/add/customer.html:12
-#: templates/add/customerinv.html:13
-msgid "Customer"
-msgstr "Kund"
-
-#: templates/add/customer.html:14
-#: templates/add/supplierinv.html:13
-msgid "Supplier"
-msgstr "Leverantör"
-
-#: templates/add/customer.html:17
-#: templates/add/customerinv.html:54
-#: templates/add/supplierinv.html:53
+#: templates/add/counterp.html:10
+#: templates/add/customerinv.html:15
+#: templates/add/supplierinv.html:15
 msgid "Save"
 msgstr "Spara"
 
@@ -271,33 +312,6 @@ msgstr "Spara"
 #: templates/add/customerinv.html.py:5
 msgid "Add Customer Invoice"
 msgstr "Lägg till Kundfaktura"
-
-#: templates/add/customerinv.html:21
-#: templates/add/supplierinv.html:21
-msgid "Amount"
-msgstr "Belopp"
-
-#: templates/add/customerinv.html:24
-msgid "to which get added"
-msgstr "plus"
-
-#: templates/add/customerinv.html:30
-#: templates/add/supplierinv.html:30
-msgid "VAT"
-msgstr "Moms"
-
-#: templates/add/customerinv.html:35
-msgid "What was sold?"
-msgstr "Vad har sålts?"
-
-#: templates/add/customerinv.html:43
-#: templates/add/supplierinv.html:43
-msgid "Already paid?"
-msgstr "Redan betald?"
-
-#: templates/add/customerinv.html:43
-msgid "To"
-msgstr "Till"
 
 #: templates/add/index.html:3
 #: templates/bk/index.html:3
@@ -323,18 +337,6 @@ msgstr "Sidans språk sätts enligt inställningar i din webbläsre. Än så lå
 #: templates/add/supplierinv.html.py:5
 msgid "Add Supplier Invoice"
 msgstr "Lägg till leverantörsfaktura"
-
-#: templates/add/supplierinv.html:24
-msgid "which includes"
-msgstr "vilket inkluderar"
-
-#: templates/add/supplierinv.html:35
-msgid "What was bought?"
-msgstr "Vad har köpts?"
-
-#: templates/add/supplierinv.html:43
-msgid "From"
-msgstr "Från"
 
 #: templates/admin/base_site.html:4
 #: templates/admin/base_site.html.py:7
@@ -421,6 +423,22 @@ msgstr "Inkomst / Förlust"
 msgid "Transaction Details"
 msgstr "Transaktionsdetaljer"
 
+#~ msgid "Please fill out everything!"
+#~ msgstr "Var god fyll i allt!"
+#~ msgid "Something went wrong!"
+#~ msgstr "Något gick fel!"
+#~ msgid "to which get added"
+#~ msgstr "plus"
+#~ msgid "VAT"
+#~ msgstr "Moms"
+#~ msgid "Already paid?"
+#~ msgstr "Redan betald?"
+#~ msgid "To"
+#~ msgstr "Till"
+#~ msgid "which includes"
+#~ msgstr "vilket inkluderar"
+#~ msgid "From"
+#~ msgstr "Från"
 #~ msgid "Is this a customer invoice? (Supplier otherwise)"
 #~ msgstr "Är detta en kundfaktura (Leverantörsf. annars)"
 #~ msgid "Supplyer"
