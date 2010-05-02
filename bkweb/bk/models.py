@@ -55,7 +55,7 @@ class Booking(models.Model):
     credit = models.DecimalField(_('Credit'), help_text=_('Credit value'),max_digits=8, decimal_places=2)
     credit.blank,debit.blank,credit.null,debit.null=(True,)*4
     def __unicode__(self):
-        return u'Booking on (%d) D:%s C:%s'%(self.acc,self.debit or '',self.credit or '')
+        return u'Booking on (%s) D:%s C:%s'%(self.acc,self.debit or '',self.credit or '')
 
     def save(self, *args, **kwargs):
         super(Booking, self).save(*args, **kwargs) 
