@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bookkeep\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 10:52+0200\n"
-"PO-Revision-Date: 2010-04-27 10:55+0100\n"
-"Last-Translator: thomas marquart <thomas@marquart.se>\n"
+"POT-Creation-Date: 2010-05-02 16:54+0200\n"
+"PO-Revision-Date: 2010-05-02 16:55+0100\n"
+"Last-Translator: Thomas Marquart <thomas@marquart.se>\n"
 "Language-Team: tom <t@tmy.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,8 +27,10 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: add/views.py:34
-#: add/views.py:45
+#: add/views.py:43
+#: add/views.py:50
+#: add/views.py:55
+#: add/views.py:62
 #: bk/models.py:25
 #: bk/models.py:95
 #: templates/bk/account.html:6
@@ -38,20 +40,20 @@ msgstr "Englisch"
 msgid "Date"
 msgstr "Datum"
 
-#: add/views.py:35
+#: add/views.py:44
 msgid "Customer"
 msgstr "Kunde"
 
-#: add/views.py:36
+#: add/views.py:45
 msgid "Gross amount"
 msgstr "Bruttobetrag"
 
-#: add/views.py:37
+#: add/views.py:46
 msgid "plus VAT"
 msgstr "plus Ust."
 
-#: add/views.py:38
-#: add/views.py:49
+#: add/views.py:47
+#: add/views.py:59
 #: bk/models.py:16
 #: bk/models.py:26
 #: bk/models.py:101
@@ -61,59 +63,64 @@ msgstr "plus Ust."
 msgid "Description"
 msgstr "Beschreibung"
 
-#: add/views.py:39
+#: add/views.py:48
 msgid "What was sold?"
 msgstr "Was wurde verkauft?"
 
-#: add/views.py:40
+#: add/views.py:49
 msgid "Paid to"
 msgstr "Gezahlt an"
 
-#: add/views.py:41
-#: add/views.py:52
+#: add/views.py:51
+#: add/views.py:63
 msgid "Actual Amout"
 msgstr "Wirkl. Betrag"
 
-#: add/views.py:41
-#: add/views.py:52
+#: add/views.py:51
+#: add/views.py:63
 msgid "If the is a currency gain/loss, write the amount here that was actually paid."
 msgstr "Bei Währungsunterschieden hier den wirklich gezahlten Betrag angeben."
 
-#: add/views.py:42
-#: add/views.py:53
+#: add/views.py:52
+#: add/views.py:64
 msgid "Non-paid VAT?"
 msgstr "Nicht gezahlte Ust?"
 
-#: add/views.py:42
-#: add/views.py:53
+#: add/views.py:52
+#: add/views.py:64
 msgid "In case of EU-transaction, no VAT is paid, but needs to be accounted for."
 msgstr "Bei EU-Transaktionen wird keine Ust. gezahlt, muss aber buchgeführt werden."
 
-#: add/views.py:46
+#: add/views.py:56
 msgid "Supplier"
 msgstr "Lieferant"
 
-#: add/views.py:47
+#: add/views.py:57
 msgid "Amount"
 msgstr "Betrag"
 
-#: add/views.py:48
+#: add/views.py:58
 msgid "Included VAT"
 msgstr "Beinhaltete Ust."
 
-#: add/views.py:50
+#: add/views.py:60
 msgid "What was bought?"
 msgstr "Was wurde gekauft?"
 
-#: add/views.py:51
+#: add/views.py:61
 msgid "Paid from"
 msgstr "Gezahlt von"
 
-#: add/views.py:89
-#: add/views.py:124
+#: add/views.py:98
+#: add/views.py:153
 #: bk/models.py:92
 msgid "Invoice"
 msgstr "Rechnung"
+
+#: add/views.py:112
+#: add/views.py:167
+msgid "Invoice Payment"
+msgstr "Zahlung von Rechnung"
 
 #: bk/models.py:10
 #: templates/bk/transaction.html:13
@@ -137,7 +144,7 @@ msgid "Number of the account, according to BAS. This number is used for classify
 msgstr "Kontonummer nach BAS-System. Die Nummer wird u.a. zur Kalssifizierung des Kontos benutzt, z.B. um Bilanz zu errechnen."
 
 #: bk/models.py:14
-#: templates/index.html:29
+#: templates/index.html:30
 #: templates/bk/account.html:9
 #: templates/bk/account.html.py:14
 #: templates/bk/accounts.html:8
@@ -212,7 +219,7 @@ msgid "Credit value"
 msgstr "Kredit-Wert"
 
 #: bk/models.py:74
-#: templates/index.html:34
+#: templates/index.html:35
 msgid "Counterpart"
 msgstr "Gegenüber"
 
@@ -237,6 +244,7 @@ msgid "Counterpart name"
 msgstr "Name des Gegenüber"
 
 #: bk/models.py:93
+#: templates/index.html:29
 msgid "Invoices"
 msgstr "Rechnungen"
 
@@ -249,12 +257,12 @@ msgid "Describe the invoice."
 msgstr "Beschreibe die Rechnung"
 
 #: bk/models.py:111
-#: templates/index.html:35
+#: templates/index.html:36
 msgid "Customer Invoice"
 msgstr "Kundenrechnung"
 
 #: bk/models.py:112
-#: templates/index.html:36
+#: templates/index.html:37
 msgid "Supplier Invoice"
 msgstr "Lieferantenrechnung"
 
@@ -289,13 +297,17 @@ msgstr "Berichte"
 msgid "Ledger"
 msgstr "Hauptbuch"
 
-#: templates/index.html:30
+#: templates/index.html:31
 msgid "Result"
 msgstr "Ergebnis"
 
-#: templates/index.html:32
+#: templates/index.html:33
 msgid "Add"
 msgstr "Hinzufügen"
+
+#: templates/index.html:38
+msgid "Payment"
+msgstr "Zahlung"
 
 #: templates/add/counterp.html:3
 #: templates/add/counterp.html.py:5
