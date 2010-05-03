@@ -47,7 +47,7 @@ class CustInvForm(forms.Form):
     descr=forms.CharField(label=_('Description'),min_length=5,max_length=512)
     what=forms.ChoiceField(label=_('What was sold?'),choices=sellfrom_accounts.values_list('accno','description'))
     payed=forms.ChoiceField(label=_('Paid to'),choices=[('','')] + list(payaccounts.values_list('accno','description')),required=False)
-    paydate=forms.DateField(label=_('Date'),initial=DATE.today())
+    paydate=forms.DateField(label=_('Date'),initial=DATE.today(),required=False)
     payedamount=forms.DecimalField(label=_('Actual Amout'),help_text=_('If the is a currency gain/loss, write the amount here that was actually paid.'),required=False)
     calcvat=forms.ChoiceField(label=_('Non-paid VAT?'),help_text=_('In case of EU-transaction, no VAT is paid, but needs to be accounted for.'),choices=VAT_RATES[::-1])
 
@@ -59,7 +59,7 @@ class SuppInvForm(forms.Form):
     descr=forms.CharField(label=_('Description'),min_length=5,max_length=512)
     what=forms.ChoiceField(label=_('What was bought?'),choices=buyfrom_accounts.values_list('accno','description'))
     payed=forms.ChoiceField(label=_('Paid from'),choices=[('','')] + list(payaccounts.values_list('accno','description')),required=False)
-    paydate=forms.DateField(label=_('Date'),initial=DATE.today())
+    paydate=forms.DateField(label=_('Date'),initial=DATE.today(),required=False)
     payedamount=forms.DecimalField(label=_('Actual Amout'),help_text=_('If the is a currency gain/loss, write the amount here that was actually paid.'),required=False)
     calcvat=forms.ChoiceField(label=_('Non-paid VAT?'),help_text=_('In case of EU-transaction, no VAT is paid, but needs to be accounted for.'),choices=VAT_RATES[::-1])
 
